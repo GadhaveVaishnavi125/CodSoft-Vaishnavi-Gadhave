@@ -1,0 +1,77 @@
+import java.util.Scanner;
+public class ATM_Interface
+{
+
+static Scanner sc= new Scanner(System.in);
+public static void main(String []args)
+{
+
+int b=10000;
+while(true)
+	{
+	System.out.println("\n\nWelcome to User Interface for ATM");
+	System.out.println("Choose 1 for withdraw amount");
+	System.out.println("Choose 2 for deposit amount");
+	System.out.println("Choose 3 for check amount");
+	System.out.println("Choose 4 for Exit");
+	System.out.println("Choose Operation you want to perform ");
+	int n=sc.nextInt();
+	switch(n)
+	{
+	case 1:
+ 	b=withdrawAmount(b);
+	break;
+	 
+	case 2:
+	b=depositAmount(b);
+	break;
+	
+	case 3: 
+	b=checkAmount(b);	
+	break;
+ 
+	case 4:
+	System.exit(0); 
+	}
+}
+}
+private static int checkAmount(int b)
+{
+	System.out.println("\nCurrent Balance"+b);
+	System.out.println("Your money has been balance check successfully!!");
+		return b;
+}
+
+
+private static int withdrawAmount(int b)
+{
+
+	System.out.println("\n\nPlease Enter withdraw amount");
+	int w = sc.nextInt();
+	System.out.println("\nWithdraw Balance"+w);
+	if(b>=w)
+	{
+	b=b-w;
+	System.out.println("Please, Collect your amount");
+	System.out.println("\nCurrent Balance"+b);
+	System.out.println("Your money has been withdraw successfully!!");
+	}
+	else
+	{
+	System.out.println("Sorry, Insufficient Amount");
+	}
+	return b;
+}
+
+private static int depositAmount(int b)
+{	
+	System.out.println("\n\nPlease Enter deposit amount");
+	int d=sc.nextInt();
+	System.out.println("\nDeposit Balance"+d);
+	b=b+d;
+	System.out.println("\nCurrent Balance"+b);
+	System.out.println("Your money has been deposited successfully!!");
+	return b;
+}
+
+}
